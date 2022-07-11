@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LUG-2Parcial", "LUG-2Parcial\LUG-2Parcial.csproj", "{5F54F9A3-50EC-4F85-BD63-AC1E603D5E50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE", "BE\BE.csproj", "{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F54F9A3-50EC-4F85-BD63-AC1E603D5E50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F54F9A3-50EC-4F85-BD63-AC1E603D5E50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F54F9A3-50EC-4F85-BD63-AC1E603D5E50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F54F9A3-50EC-4F85-BD63-AC1E603D5E50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19423EB6-3653-4081-9C22-83BE08CB07FD}
+	EndGlobalSection
+EndGlobal
