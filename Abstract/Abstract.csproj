@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4E9E2647-4ADA-4294-AB81-548C5FE6FFCE}</ProjectGuid>
+    <ProjectGuid>{5B243E22-582F-4EC7-A662-7DF4CFA7C7AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BE</RootNamespace>
-    <AssemblyName>BE</AssemblyName>
+    <RootNamespace>Abstract</RootNamespace>
+    <AssemblyName>Abstract</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,17 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_Juego.cs" />
-    <Compile Include="BE_Jugador.cs" />
-    <Compile Include="BE_Piedra_Papel_Tijera.cs" />
-    <Compile Include="BE_Ta_Te_Ti.cs" />
+    <Compile Include="IEntidable.cs" />
+    <Compile Include="IGameable.cs" />
+    <Compile Include="IGestionable.cs" />
+    <Compile Include="IValidable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Abstract\Abstract.csproj">
-      <Project>{5b243e22-582f-4ec7-a662-7df4cfa7c7ac}</Project>
-      <Name>Abstract</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

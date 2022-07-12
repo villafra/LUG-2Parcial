@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE
+
+namespace BLL
 {
-    public class BE_Ta_Te_Ti:BE_Juego
+    public abstract class BLL_Juego
     {
+        public abstract void PuntuarPartida();
     }
 }

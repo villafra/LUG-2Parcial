@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BE_Piedra_Papel_Tijera
+    public class BE_Piedra_Papel_Tijera:BE_Juego
     {
     }
 }

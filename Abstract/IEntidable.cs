@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BE
+namespace Abstract
 {
-    public class BE_Ta_Te_Ti:BE_Juego
+    public interface IEntidable
     {
+        int Codigo { get; set; }
+
     }
 }
