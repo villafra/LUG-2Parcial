@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="MPP_Jugador.cs" />
     <Compile Include="MPP_Piedra_Papel_Tijera.cs" />
+    <Compile Include="MPP_Ta_Te_Ti.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
