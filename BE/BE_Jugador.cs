@@ -18,5 +18,19 @@ namespace BE
         public string Localidad { get; set; }
         public int Puntuacion { get; set; }
 
+        public BE_Jugador()
+        {
+        }
+
+        public BE_Jugador(int dNI, string nombre, string apellido, string eMail, DateTime fechaNacimiento, string localidad, int puntuacion)
+        {
+            DNI = dNI;
+            Nombre = nombre;
+            Apellido = apellido;
+            this.eMail = eMail;
+            FechaNacimiento = fechaNacimiento;
+            Localidad = localidad;
+            Puntuacion = puntuacion;
+        }
     }
 }
