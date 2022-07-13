@@ -13,18 +13,20 @@ using BLL;
 
 namespace LUG_2Parcial
 {
-    public partial class Usuarios : Form
+    public partial class frmUsuarios : Form
     {
         BE_Jugador Jugador;
-        BLL_Jugador BLL_Jugador;
-        public Usuarios()
+        BLL_Jugador oBLL_Jugador;
+        public frmUsuarios()
         {
             InitializeComponent();
             Jugador = new BE_Jugador();
-            BLL_Jugador = new BLL_Jugador();
+            oBLL_Jugador = new BLL_Jugador();
+            ActualizarListado();
         }
-        private void nuevo()
+        private BE_Jugador nuevo()
         {
+
             BE_Jugador NuevoPlayer = new BE_Jugador(
              Convert.ToInt32(txtDNI.Text),
              txtNombre.Text,
@@ -34,6 +36,7 @@ namespace LUG_2Parcial
              txtLocalidad.Text,
              Convert.ToInt32(lblPuntuacion.Text)
              ); 
+            return NuevoPlayer;
         }
         private void viejo()
         {
@@ -45,9 +48,39 @@ namespace LUG_2Parcial
             Jugador.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
             Jugador.eMail = txtMail.Text;
         }
+        private void ActualizarListado()
+        {
+           Calculos.RefreshGrilla(dataGridView1, oBLL_Jugador.Listar());
+        }
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
             Calculos.ValidarEntero(e);
+        }
+
+        private void btnNuevoUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                oBLL_Jugador.Guardar(nuevo());
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                viejo();
+                oBLL_Jugador.Guardar(Jugador);
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
         }
     }
 }

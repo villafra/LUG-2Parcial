@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Estandarizacion;
 
 namespace LUG_2Parcial
 {
@@ -15,6 +16,21 @@ namespace LUG_2Parcial
         public Menu()
         {
             InitializeComponent();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmUsuarios);
+            if (frm != null)
+            {
+                frm.BringToFront();
+                return;
+            }
+            else
+            {
+                frm = new frmUsuarios();
+                Aspecto.AbrirNuevoForm(this, frm);
+            }
         }
     }
 }

@@ -69,5 +69,84 @@ namespace Estandarizacion
         {
             return Regex.IsMatch(apellido, "([\\w0-9'°\\s])$");
         }
+        public static void BorrarCampos(Control grp)
+        {
+            foreach (Control c in grp.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox text = c as TextBox;
+                    text.Text = null;
+                }
+                else if (c is NumericUpDown)
+                {
+                    NumericUpDown num = c as NumericUpDown;
+                    num.Value = 0;
+                }
+                else if (c is ComboBox)
+                {
+                    ComboBox combo = c as ComboBox;
+                    combo.Text = null;
+                }
+                else if (c is CheckBox)
+                {
+                    CheckBox check = c as CheckBox;
+                    check.Checked = false;
+                }
+            }
+        }
+        public static bool Camposvacios(Control grp)
+        {
+            int sino = 0;
+            foreach (Control c in grp.Controls)
+            {
+                if (c is TextBox)
+                {
+                    TextBox text = c as TextBox;
+                    if (text.Text == "")
+                    {
+                        sino = 1;
+                    }
+                }
+                else if (c is NumericUpDown)
+                {
+                    NumericUpDown num = c as NumericUpDown;
+                    if (num.Value == 0)
+                    {
+                        sino = 1;
+                    }
+                }
+                else if (c is ComboBox)
+                {
+                    ComboBox combo = c as ComboBox;
+                    if (combo.Text == "")
+                    {
+                        sino = 1;
+                    }
+                }
+            }
+            return sino == 0;
+        }
+        public static void RefreshGrilla(DataGridView dgv, object refObject)
+        {
+            dgv.DataSource = null;
+            dgv.DataSource = refObject;
+        }
+        public static void GrillaEnBlanco(DataGridView dgv)
+        {
+            dgv.DataSource = null;
+        }
+
+        public static void DataSourceCombo(ComboBox combo, object refObject, string DisplayMember)
+        {
+            combo.DataSource = null;
+            combo.DataSource = refObject;
+            try { combo.ValueMember = "Codigo"; }
+            catch { }
+            combo.DisplayMember = DisplayMember;
+            combo.SelectedIndex = -1;
+            combo.Refresh();
+
+        }
     }
 }

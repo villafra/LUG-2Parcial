@@ -38,6 +38,8 @@ namespace Mapper
                     xmlDoc = new XDocument(
                          new XDeclaration("1.0", "UTF-8", "yes"),
                          new XComment("Registro de Usuarios."));
+                    XElement nuevo = new XElement("Usuarios");
+                    xmlDoc.Add(nuevo);
                     Jugador.Codigo = 1000;
                 }
                 else
@@ -45,11 +47,12 @@ namespace Mapper
                     xmlDoc = XDocument.Load("Datos Usuarios.xml");
                     if (Jugador.Codigo == 0)
                     {
-                        int max = 0;
+                        int max = Listar().LastOrDefault().Codigo;
                         Jugador.Codigo = max + 1;
                     }
 
                 }
+                
                 xmlDoc.Element("Usuarios").Add(new XElement("Usuario",
                                              new XAttribute("ID", Jugador.Codigo.ToString()),
                                              new XElement("DNI", Jugador.DNI.ToString()),
@@ -78,10 +81,24 @@ namespace Mapper
 
         public List<BE_Jugador> Listar()
         {
-            throw new NotImplementedException();
+            var consulta =
+                from logueo in XElement.Load("Datos Usuarios.xml").Elements("Usuario")
+                select new BE_Jugador
+                {
+                    Codigo = Convert.ToInt32(Convert.ToString(logueo.Attribute("ID").Value).Trim()),
+                    DNI = Convert.ToInt32(Convert.ToString(logueo.Element("DNI").Value).Trim()),
+                    Nombre = Convert.ToString(logueo.Element("Nombre").Value).Trim(),
+                    Apellido = Convert.ToString(logueo.Element("Apellido").Value).Trim(),
+                    eMail = Convert.ToString(logueo.Element("eMail").Value).Trim(),
+                    FechaNacimiento = Convert.ToDateTime(Convert.ToString(logueo.Element("FechaNacimiento").Value).Trim()),
+                    Localidad = Convert.ToString(logueo.Element("Localidad").Value).Trim(),
+                    Puntuacion = Convert.ToInt32(Convert.ToString(logueo.Element("Puntuacion").Value).Trim()),
+                };
+            List<BE_Jugador> listadejugadores = consulta.ToList<BE_Jugador>();
+            return listadejugadores;
         }
 
-        public BE_Jugador ListarObjeto(BE_Jugador Objeto)
+        public BE_Jugador ListarObjeto(BE_Jugador Jugador)
         {
             throw new NotImplementedException();
         }
