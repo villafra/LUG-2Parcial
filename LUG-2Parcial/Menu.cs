@@ -16,6 +16,7 @@ namespace LUG_2Parcial
         public Menu()
         {
             InitializeComponent();
+            Aspecto.FormatearForm(this, panelMenu);
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

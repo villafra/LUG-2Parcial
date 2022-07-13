@@ -61,6 +61,13 @@ namespace Estandarizacion
         {
             return Regex.IsMatch(dni, "^([0-9]{8,8})");
         }
+        public static bool ValidarFecha(string fecha)
+        {
+
+            fecha = Regex.Replace(fecha, @"[.-]", "/");
+            return Regex.IsMatch(fecha, "^([0]?[1-9]|[1][0-2])[/]([0]?[1-9]|[1|2][0-9]|[3][0|1])[/]([0-9]{4}|[0-9]{2})$");
+            
+        }
         public static bool ValidarNombrePersonal(string nombre)
         {
             return Regex.IsMatch(nombre, "([a-zA-Z]|[0-9])$");
@@ -147,6 +154,55 @@ namespace Estandarizacion
             combo.SelectedIndex = -1;
             combo.Refresh();
 
+        }
+        public static void MsgBox(string mensaje)
+        {
+            MessageBox.Show(mensaje, "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static bool EstaSeguro(string objeto, int codigo, string nombre)
+        {
+            DialogResult resultado;
+            resultado = MessageBox.Show(@"Esta seguro que desea " + objeto + ": " + nombre + "\n Numero: " + codigo.ToString() + "?", objeto, MessageBoxButtons.YesNo);
+            if (resultado == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static void MsgBoxAlta(string nombre)
+        {
+            MessageBox.Show(nombre + " ha sido agregado a la base de datos.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxMod(string nombre)
+        {
+            MessageBox.Show(nombre + " se ha modificado con exito.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxBaja(string nombre)
+        {
+            MessageBox.Show(nombre + " ha sido eliminado de la base de datos.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxNoAlta(string nombre)
+        {
+            MessageBox.Show("No se pudo dar de alta el objeto (" + nombre + "). Intente nuevamente.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxNoMod(string nombre)
+        {
+            MessageBox.Show("No se pudo modificar el objeto (" + nombre + "). Intente nuevamente.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxNoBaja(string nombre)
+        {
+            MessageBox.Show("No se pudo dar de baja el objeto (" + nombre + "). Intente nuevamente.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxSiExiste(string nombre)
+        {
+            MessageBox.Show(nombre + " ya existe en la base de datos.", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void MsgBoxSiExisteDNI(string nombre)
+        {
+            MessageBox.Show("El DNI ya existe en la base de datos y no pertenece a " + nombre + ".", "On Line Games", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

@@ -31,5 +31,10 @@ namespace BE
             FechaNacimiento = fechaNacimiento;
             Localidad = localidad;
         }
+
+        public override string ToString()
+        {
+            return this.Nombre + " " + this.Apellido;
+        }
     }
 }

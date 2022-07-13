@@ -17,6 +17,7 @@ namespace LUG_2Parcial
     {
         BE_Jugador Jugador;
         BLL_Jugador oBLL_Jugador;
+        BE_Jugador NuevoPlayer;
         public frmUsuarios()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace LUG_2Parcial
         private BE_Jugador nuevo()
         {
 
-            BE_Jugador NuevoPlayer = new BE_Jugador(
+            NuevoPlayer = new BE_Jugador(
              Convert.ToInt32(txtDNI.Text),
              txtNombre.Text,
              txtApellido.Text,
@@ -52,6 +53,7 @@ namespace LUG_2Parcial
         private void ActualizarListado()
         {
            Calculos.RefreshGrilla(dgvUsuarios, oBLL_Jugador.Listar());
+            Aspecto.DGVUsuarios(dgvUsuarios);
         }
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -62,12 +64,27 @@ namespace LUG_2Parcial
         {
             try
             {
-                oBLL_Jugador.Guardar(nuevo());
+                if (ValidarCampos().Item1)
+                {
+                    if (oBLL_Jugador.Guardar(nuevo()))
+                    {
+                        Calculos.MsgBoxAlta(NuevoPlayer.ToString());
+                    }
+                    else
+                    {
+                        Calculos.MsgBoxNoAlta(NuevoPlayer.ToString());
+                    }
+                }
+                else
+                {
+                    Calculos.MsgBox(ValidarCampos().Item2);
+                }
             }
             catch (Exception ex)
             {
-                
+                Calculos.MsgBox(ex.Message);
             }
+            finally { ActualizarListado(); }
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -75,13 +92,26 @@ namespace LUG_2Parcial
             try
             {
                 viejo();
-                oBLL_Jugador.Modificar(Jugador);
+                if(Calculos.EstaSeguro("Modificar",Jugador.DNI, Jugador.ToString()))
+                {
+                     if (oBLL_Jugador.Modificar(Jugador))
+                {
+                    Calculos.MsgBoxMod(Jugador.ToString());
+                    
+                }
+                else
+                {
+                    Calculos.MsgBoxNoMod(Jugador.ToString());
+                }
+                }
+               
             }
             catch (Exception ex)
             {
-
+                Calculos.MsgBox(ex.Message);
                 
             }
+            finally { ActualizarListado(); }
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -101,13 +131,39 @@ namespace LUG_2Parcial
         {
             try
             {
-                oBLL_Jugador.Baja(Jugador);
+                if(Calculos.EstaSeguro("Eliminar", Jugador.Codigo, Jugador.ToString()))
+                {
+                    if (oBLL_Jugador.Baja(Jugador))
+                    {
+                        Calculos.MsgBoxBaja(Jugador.ToString());
+                        
+                    }
+                    else
+                    {
+                        Calculos.MsgBoxNoBaja(Jugador.ToString());
+                    }
+                    
+                }
             }
             catch (Exception ex)
             {
-
-
+                Calculos.MsgBox(ex.Message);
             }
+            finally { ActualizarListado(); }
+        }
+        private (bool, string) ValidarCampos()
+        {
+            bool sino = true;
+            string cual = "";
+
+            if (!Calculos.LargoDNI(txtDNI.Text)) { sino = false; cual = "DNI"; }
+            if (!Calculos.ValidarNombrePersonal(txtNombre.Text)) { sino = false; cual = "Nombre"; }
+            if (!Calculos.ValidarApellido(txtApellido.Text)) { sino = false; cual = "Apellido"; }
+            if (!Calculos.ValidarMail(txtMail.Text)) { sino = false; cual = "Mail"; }
+            if (!Calculos.ValidarFecha(txtFechaNacimiento.Text)) { sino = false; cual = "Fecha de Nacimiento"; }
+            if(!Calculos.ValidarNombrePersonal(txtLocalidad.Text)) { sino = false; cual = "Localidad"; }
+
+            return (sino, cual);
         }
     }
 }
