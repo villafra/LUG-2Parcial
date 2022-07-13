@@ -13,9 +13,31 @@ namespace Mapper
 {
     public class MPP_Jugador : IValidable<BE_Jugador>, IGestionable<BE_Jugador>
     {
-        public bool Baja(BE_Jugador Objeto)
+        public bool Baja(BE_Jugador Jugador)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDoc = XDocument.Load("Datos Usuarios.xml");
+                var query = from jugador in xmlDoc.Descendants("Usuario")
+                            where Convert.ToInt32(jugador.Attribute("ID").Value) == Jugador.Codigo
+                            select jugador;
+
+                query.Remove();
+                xmlDoc.Save("Datos Usuarios.xml");
+                return true;
+            }
+            catch (XmlException xml)
+            {
+
+                return false;
+                throw xml;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
 
         public bool Existe(BE_Jugador Jugador)
@@ -62,6 +84,42 @@ namespace Mapper
                                              new XElement("FechaNacimiento", Jugador.FechaNacimiento.ToString("dd/MM/yyyy")),
                                              new XElement("Localidad", Jugador.Localidad),
                                              new XElement("Puntuacion", Jugador.Puntuacion.ToString())));
+                xmlDoc.Save("Datos Usuarios.xml");
+                return true;
+            }
+            catch (XmlException xml)
+            {
+
+                return false;
+                throw xml;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
+
+        public bool Modificar(BE_Jugador Jugador)
+        {
+            try
+            {
+                XDocument xmlDoc = XDocument.Load("Datos Usuarios.xml");
+                var query = from jugador in xmlDoc.Descendants("Usuario")
+                            where Convert.ToInt32(jugador.Attribute("ID").Value) == Jugador.Codigo
+                            select jugador;
+
+                foreach(XElement atrib in query)
+                {
+                    atrib.Element("DNI").Value = Jugador.DNI.ToString();
+                    atrib.Element("Nombre").Value = Jugador.Nombre;
+                    atrib.Element("Apellido").Value = Jugador.Apellido;
+                    atrib.Element("eMail").Value = Jugador.eMail;
+                    atrib.Element("FechaNacimiento").Value = Jugador.FechaNacimiento.ToString("dd/MM/yyyy");
+                    atrib.Element("Localidad").Value = Jugador.Localidad;
+                    atrib.Element("Puntuacion").Value = Jugador.Puntuacion.ToString();
+                } 
                 xmlDoc.Save("Datos Usuarios.xml");
                 return true;
             }

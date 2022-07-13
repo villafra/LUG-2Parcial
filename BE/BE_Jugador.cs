@@ -22,7 +22,7 @@ namespace BE
         {
         }
 
-        public BE_Jugador(int dNI, string nombre, string apellido, string eMail, DateTime fechaNacimiento, string localidad, int puntuacion)
+        public BE_Jugador(int dNI, string nombre, string apellido, string eMail, DateTime fechaNacimiento, string localidad)
         {
             DNI = dNI;
             Nombre = nombre;
@@ -30,7 +30,6 @@ namespace BE
             this.eMail = eMail;
             FechaNacimiento = fechaNacimiento;
             Localidad = localidad;
-            Puntuacion = puntuacion;
         }
     }
 }

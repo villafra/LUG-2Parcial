@@ -22,6 +22,8 @@ namespace LUG_2Parcial
             InitializeComponent();
             Jugador = new BE_Jugador();
             oBLL_Jugador = new BLL_Jugador();
+            Aspecto.FormatearDGV(dgvUsuarios);
+            Aspecto.FormatearGRP(grpUsuarios);
             ActualizarListado();
         }
         private BE_Jugador nuevo()
@@ -33,8 +35,7 @@ namespace LUG_2Parcial
              txtApellido.Text,
              txtMail.Text,
              Convert.ToDateTime(txtFechaNacimiento.Text),
-             txtLocalidad.Text,
-             Convert.ToInt32(lblPuntuacion.Text)
+             txtLocalidad.Text
              ); 
             return NuevoPlayer;
         }
@@ -50,7 +51,7 @@ namespace LUG_2Parcial
         }
         private void ActualizarListado()
         {
-           Calculos.RefreshGrilla(dataGridView1, oBLL_Jugador.Listar());
+           Calculos.RefreshGrilla(dgvUsuarios, oBLL_Jugador.Listar());
         }
         private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -74,12 +75,38 @@ namespace LUG_2Parcial
             try
             {
                 viejo();
-                oBLL_Jugador.Guardar(Jugador);
+                oBLL_Jugador.Modificar(Jugador);
             }
             catch (Exception ex)
             {
 
                 
+            }
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Jugador = (BE_Jugador)dgvUsuarios.CurrentRow.DataBoundItem;
+            txtCodigo.Text = Jugador.Codigo.ToString();
+            txtDNI.Text = Jugador.DNI.ToString();
+            txtNombre.Text = Jugador.Nombre;
+            txtApellido.Text = Jugador.Apellido;
+            txtMail.Text = Jugador.eMail;
+            txtFechaNacimiento.Text = Jugador.FechaNacimiento.ToString("dd/MM/yyyy");
+            txtLocalidad.Text = Jugador.Localidad;
+            lblPuntuacion.Text = Jugador.Puntuacion.ToString();
+        }
+
+        private void btnEliminarUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                oBLL_Jugador.Baja(Jugador);
+            }
+            catch (Exception ex)
+            {
+
+
             }
         }
     }

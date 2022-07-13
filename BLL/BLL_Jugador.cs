@@ -37,8 +37,11 @@ namespace BLL
         {
             return oMPP_Jugador.Guardar(Jugador);
         }
-
-        public List<BE_Jugador> Listar()
+        public bool Modificar(BE_Jugador Jugador)
+        {
+            return oMPP_Jugador.Modificar(Jugador);
+        }
+            public List<BE_Jugador> Listar()
         {
             return oMPP_Jugador.Listar();
         }
