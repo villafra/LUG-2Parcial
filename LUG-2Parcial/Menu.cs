@@ -48,5 +48,20 @@ namespace LUG_2Parcial
                 Aspecto.AbrirNuevoForm(this, frm);
             }
         }
+
+        private void btnPPT_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmPPT);
+            if (frm != null)
+            {
+                frm.BringToFront();
+                return;
+            }
+            else
+            {
+                frm = new frmPPT();
+                Aspecto.AbrirNuevoForm(this, frm);
+            }
+        }
     }
 }

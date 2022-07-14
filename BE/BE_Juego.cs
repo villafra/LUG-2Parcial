@@ -17,5 +17,11 @@ namespace BE
         {
             return Nombre;
         }
+
+        public enum Resultado
+        {
+            Empate=1,
+            Victoria=2
+        }
     }
 }

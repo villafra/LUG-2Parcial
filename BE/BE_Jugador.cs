@@ -14,6 +14,7 @@ namespace BE
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string eMail { get; set; }
+        public string Password { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Localidad { get; set; }
         public int Puntuacion { get; set; }

@@ -27,7 +27,10 @@ namespace BLL
         {
             return oMPP_Jugador.Existe(Jugador);
         }
-
+        public bool Login(BE_Jugador Jugador)
+        {
+            return oMPP_Jugador.Login(Jugador);
+        }
         public bool ExisteActivo(BE_Jugador Jugador)
         {
             return oMPP_Jugador.ExisteActivo(Jugador);

@@ -41,7 +41,9 @@ namespace Mapper
                                              new XElement("eMail", Juego.Ganador.eMail),
                                              new XElement("FechaNacimiento", Juego.Ganador.FechaNacimiento.ToString("dd/MM/yyyy")),
                                              new XElement("Localidad", Juego.Ganador.Localidad),
-                                             new XElement("Puntuacion", Juego.Ganador.Puntuacion.ToString()))));
+                                             new XElement("Puntuacion", Juego.Ganador.Puntuacion.ToString())),
+                                             new XElement("Fecha", DateTime.Now.ToString("dd/MM/yyyy"),
+                                             new XElement("Hora", DateTime.Now.ToString("HH:mm")))));
                 xmlDoc.Save("Datos Juegos.xml");
                 return true;
             }

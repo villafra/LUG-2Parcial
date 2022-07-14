@@ -66,6 +66,7 @@
             this.btnPPT.TabIndex = 4;
             this.btnPPT.Text = "Piedra, Papel\r\no Tijera";
             this.btnPPT.UseVisualStyleBackColor = true;
+            this.btnPPT.Click += new System.EventHandler(this.btnPPT_Click);
             // 
             // FotosBotones
             // 

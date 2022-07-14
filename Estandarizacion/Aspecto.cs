@@ -198,9 +198,10 @@ namespace Estandarizacion
             dgv.Columns[2].HeaderText = "Nombre";
             dgv.Columns[3].HeaderText = "Apellido";
             dgv.Columns[4].HeaderText = "eMail";
-            dgv.Columns[5].HeaderText = "Fecha de Nacimiento";
-            dgv.Columns[6].HeaderText = "Localidad";
-            dgv.Columns[7].Visible = false;
+            dgv.Columns[5].Visible = false;
+            dgv.Columns[6].HeaderText = "Fecha de Nacimiento";
+            dgv.Columns[7].HeaderText = "Localidad";
+            dgv.Columns[8].Visible = false;
             foreach (DataGridViewColumn columns in dgv.Columns)
             {
                 columns.SortMode = DataGridViewColumnSortMode.NotSortable;

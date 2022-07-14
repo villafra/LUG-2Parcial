@@ -71,9 +71,77 @@ namespace Mapper
             }
         }
 
+        public bool Login(BE_Jugador Jugador)
+        {
+            try
+            {
+                var consulta =
+               from logueo in XElement.Load("Datos Usuarios.xml").Elements("Usuario")
+               where logueo.Element("eMail").Value == Jugador.eMail && logueo.Element("Password").Value == Jugador.Password
+               select new BE_Jugador
+               {
+                   Codigo = Convert.ToInt32(Convert.ToString(logueo.Attribute("ID").Value).Trim()),
+                   DNI = Convert.ToInt32(Convert.ToString(logueo.Element("DNI").Value).Trim()),
+                   Nombre = Convert.ToString(logueo.Element("Nombre").Value).Trim(),
+                   Apellido = Convert.ToString(logueo.Element("Apellido").Value).Trim(),
+                   eMail = Convert.ToString(logueo.Element("eMail").Value).Trim(),
+                   Password = Convert.ToString(logueo.Element("Password").Value).Trim(),
+                   FechaNacimiento = Convert.ToDateTime(Convert.ToString(logueo.Element("FechaNacimiento").Value).Trim()),
+                   Localidad = Convert.ToString(logueo.Element("Localidad").Value).Trim(),
+                   Puntuacion = Convert.ToInt32(Convert.ToString(logueo.Element("Puntuacion").Value).Trim()),
+               };
+                if (consulta.Any())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (XmlException xml)
+            {
+
+                return false;
+                throw xml;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+        }
+
         public bool ExisteActivo(BE_Jugador Jugador)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDoc = XDocument.Load("Datos Usuarios.xml");
+                var query = from jugador in xmlDoc.Descendants("Usuario")
+                            where jugador.Element("eMail").Value == Jugador.eMail
+                            select jugador;
+                if (query.Any())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (XmlException xml)
+            {
+
+                return false;
+                throw xml;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
 
         public bool Guardar(BE_Jugador Jugador)
@@ -107,6 +175,7 @@ namespace Mapper
                                              new XElement("Nombre", Jugador.Nombre),
                                              new XElement("Apellido", Jugador.Apellido),
                                              new XElement("eMail", Jugador.eMail),
+                                             new XElement("Password", Jugador.Password),
                                              new XElement("FechaNacimiento", Jugador.FechaNacimiento.ToString("dd/MM/yyyy")),
                                              new XElement("Localidad", Jugador.Localidad),
                                              new XElement("Puntuacion", Jugador.Puntuacion.ToString())));
@@ -142,6 +211,7 @@ namespace Mapper
                     atrib.Element("Nombre").Value = Jugador.Nombre;
                     atrib.Element("Apellido").Value = Jugador.Apellido;
                     atrib.Element("eMail").Value = Jugador.eMail;
+                    atrib.Element("Password").Value = Jugador.Password;
                     atrib.Element("FechaNacimiento").Value = Jugador.FechaNacimiento.ToString("dd/MM/yyyy");
                     atrib.Element("Localidad").Value = Jugador.Localidad;
                     atrib.Element("Puntuacion").Value = Jugador.Puntuacion.ToString();
@@ -174,6 +244,7 @@ namespace Mapper
                     Nombre = Convert.ToString(logueo.Element("Nombre").Value).Trim(),
                     Apellido = Convert.ToString(logueo.Element("Apellido").Value).Trim(),
                     eMail = Convert.ToString(logueo.Element("eMail").Value).Trim(),
+                    Password = Convert.ToString(logueo.Element("Password").Value).Trim(),
                     FechaNacimiento = Convert.ToDateTime(Convert.ToString(logueo.Element("FechaNacimiento").Value).Trim()),
                     Localidad = Convert.ToString(logueo.Element("Localidad").Value).Trim(),
                     Puntuacion = Convert.ToInt32(Convert.ToString(logueo.Element("Puntuacion").Value).Trim()),
@@ -184,7 +255,22 @@ namespace Mapper
 
         public BE_Jugador ListarObjeto(BE_Jugador Jugador)
         {
-            throw new NotImplementedException();
+            var consulta =
+               from logueo in XElement.Load("Datos Usuarios.xml").Elements("Usuario")
+               where logueo.Element("eMail").Value == Jugador.eMail
+               select new BE_Jugador
+               {
+                   Codigo = Convert.ToInt32(Convert.ToString(logueo.Attribute("ID").Value).Trim()),
+                   DNI = Convert.ToInt32(Convert.ToString(logueo.Element("DNI").Value).Trim()),
+                   Nombre = Convert.ToString(logueo.Element("Nombre").Value).Trim(),
+                   Apellido = Convert.ToString(logueo.Element("Apellido").Value).Trim(),
+                   eMail = Convert.ToString(logueo.Element("eMail").Value).Trim(),
+                   Password = Convert.ToString(logueo.Element("Password").Value).Trim(),
+                   FechaNacimiento = Convert.ToDateTime(Convert.ToString(logueo.Element("FechaNacimiento").Value).Trim()),
+                   Localidad = Convert.ToString(logueo.Element("Localidad").Value).Trim(),
+                   Puntuacion = Convert.ToInt32(Convert.ToString(logueo.Element("Puntuacion").Value).Trim()),
+               };
+            return consulta.ToList<BE_Jugador>().FirstOrDefault();
         }
     }
 }

@@ -33,9 +33,16 @@ namespace BLL
             return oMPP_Ta_Te_Ti.Listar();
         }
 
-        public override void PuntuarPartida()
+        public override int PuntuarPartida(BE.BE_Juego.Resultado resultado)
         {
-            throw new NotImplementedException();
+            if (resultado == BE_Juego.Resultado.Victoria)
+            {
+                return 5;
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         public (bool,BE_Ta_Te_Ti.XO) VerGanador(BE_Ta_Te_Ti Ta_Te_Ti)

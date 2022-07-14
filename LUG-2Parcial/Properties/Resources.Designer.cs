@@ -93,6 +93,16 @@ namespace LUG_2Parcial.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap papel {
+            get {
+                object obj = ResourceManager.GetObject("papel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap perfil_del_usuario {
             get {
                 object obj = ResourceManager.GetObject("perfil-del-usuario", resourceCulture);
@@ -103,9 +113,29 @@ namespace LUG_2Parcial.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pictu2re2 {
+            get {
+                object obj = ResourceManager.GetObject("Pictu2re2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Picture1 {
             get {
                 object obj = ResourceManager.GetObject("Picture1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Picture111 {
+            get {
+                object obj = ResourceManager.GetObject("Picture111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +173,16 @@ namespace LUG_2Parcial.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap piedra {
+            get {
+                object obj = ResourceManager.GetObject("piedra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sin_título {
             get {
                 object obj = ResourceManager.GetObject("Sin título", resourceCulture);
@@ -156,6 +196,16 @@ namespace LUG_2Parcial.Properties {
         internal static System.Drawing.Bitmap Sin_título1 {
             get {
                 object obj = ResourceManager.GetObject("Sin título1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tijera {
+            get {
+                object obj = ResourceManager.GetObject("tijera", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

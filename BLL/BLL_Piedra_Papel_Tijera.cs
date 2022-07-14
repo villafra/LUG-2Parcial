@@ -33,9 +33,39 @@ namespace BLL
             return oMPP_Juego.Listar();
         }
 
-        public override void PuntuarPartida()
+        public override int PuntuarPartida(BE_Juego.Resultado resultado)
         {
-            throw new NotImplementedException();
+            if (resultado == BE_Juego.Resultado.Victoria)
+            {
+                return 3;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+
+        public BE_Piedra_Papel_Tijera.PPT DevolverJugada()
+        {
+            Random rand = new Random();
+            int juego = rand.Next(1,4);
+            return (BE_Piedra_Papel_Tijera.PPT)juego;
+        }
+        public (bool, BE_Piedra_Papel_Tijera.PPT) VerGanador(BE_Piedra_Papel_Tijera PPT)
+        {
+            bool ganador = false;
+            BE_Piedra_Papel_Tijera.PPT quien = BE_Piedra_Papel_Tijera.PPT.State;
+
+            if(PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Piedra && PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Tijera
+                || PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Tijera && PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Papel
+                || PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Papel && PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Piedra) 
+            { ganador = true; quien = PPT.Opcion1; }
+            if(PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Piedra && PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Tijera
+                || PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Tijera && PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Papel
+                || PPT.Opcion2 == BE_Piedra_Papel_Tijera.PPT.Papel && PPT.Opcion1 == BE_Piedra_Papel_Tijera.PPT.Piedra)
+            { ganador = true; quien = PPT.Opcion2; }
+
+            return (ganador, quien);
         }
     }
 }

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmPPT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPPT.Designer.cs">
+      <DependentUpon>frmPPT.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTATETI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmPPT.resx">
+      <DependentUpon>frmPPT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTATETI.resx">
       <DependentUpon>frmTATETI.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,6 +148,10 @@
       <Project>{125ee0b4-f7da-4335-9306-0f9e259dcee6}</Project>
       <Name>Estandarizacion</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{5ee0bdb6-b277-4488-8476-80f355f98c8b}</Project>
+      <Name>Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\acceso.png" />
@@ -148,6 +161,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture111.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pictu2re2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piedra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\papel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tijera.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
