@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnPPT = new System.Windows.Forms.Button();
+            this.FotosBotones = new System.Windows.Forms.ImageList(this.components);
+            this.btnTaTeTi = new System.Windows.Forms.Button();
+            this.btnInformes = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.picgames = new System.Windows.Forms.PictureBox();
             this.panelMenu.SuspendLayout();
@@ -40,9 +43,9 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.Controls.Add(this.button4);
-            this.panelMenu.Controls.Add(this.button3);
-            this.panelMenu.Controls.Add(this.button2);
+            this.panelMenu.Controls.Add(this.btnPPT);
+            this.panelMenu.Controls.Add(this.btnTaTeTi);
+            this.panelMenu.Controls.Add(this.btnInformes);
             this.panelMenu.Controls.Add(this.btnUsuarios);
             this.panelMenu.Controls.Add(this.picgames);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -52,44 +55,62 @@
             this.panelMenu.Size = new System.Drawing.Size(245, 677);
             this.panelMenu.TabIndex = 1;
             // 
-            // button4
+            // btnPPT
             // 
-            this.button4.Location = new System.Drawing.Point(21, 386);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(203, 62);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPPT.ImageKey = "Picture2.png";
+            this.btnPPT.ImageList = this.FotosBotones;
+            this.btnPPT.Location = new System.Drawing.Point(3, 447);
+            this.btnPPT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPPT.Name = "btnPPT";
+            this.btnPPT.Size = new System.Drawing.Size(239, 84);
+            this.btnPPT.TabIndex = 4;
+            this.btnPPT.Text = "Piedra, Papel\r\no Tijera";
+            this.btnPPT.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // FotosBotones
             // 
-            this.button3.Location = new System.Drawing.Point(21, 319);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(203, 62);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.FotosBotones.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("FotosBotones.ImageStream")));
+            this.FotosBotones.TransparentColor = System.Drawing.Color.Transparent;
+            this.FotosBotones.Images.SetKeyName(0, "computer-1331579_640.png");
+            this.FotosBotones.Images.SetKeyName(1, "analitica.png");
+            this.FotosBotones.Images.SetKeyName(2, "Picture1.jpg");
+            this.FotosBotones.Images.SetKeyName(3, "Picture2.png");
             // 
-            // button2
+            // btnTaTeTi
             // 
-            this.button2.Location = new System.Drawing.Point(21, 251);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(203, 62);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTaTeTi.ImageKey = "Picture1.jpg";
+            this.btnTaTeTi.ImageList = this.FotosBotones;
+            this.btnTaTeTi.Location = new System.Drawing.Point(3, 359);
+            this.btnTaTeTi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTaTeTi.Name = "btnTaTeTi";
+            this.btnTaTeTi.Size = new System.Drawing.Size(239, 84);
+            this.btnTaTeTi.TabIndex = 3;
+            this.btnTaTeTi.Text = "Ta - Te - Ti";
+            this.btnTaTeTi.UseVisualStyleBackColor = true;
+            this.btnTaTeTi.Click += new System.EventHandler(this.btnTaTeTi_Click);
+            // 
+            // btnInformes
+            // 
+            this.btnInformes.ImageKey = "analitica.png";
+            this.btnInformes.ImageList = this.FotosBotones;
+            this.btnInformes.Location = new System.Drawing.Point(3, 271);
+            this.btnInformes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInformes.Name = "btnInformes";
+            this.btnInformes.Size = new System.Drawing.Size(239, 84);
+            this.btnInformes.TabIndex = 2;
+            this.btnInformes.Text = "Informes";
+            this.btnInformes.UseVisualStyleBackColor = true;
             // 
             // btnUsuarios
             // 
-            this.btnUsuarios.Location = new System.Drawing.Point(21, 183);
+            this.btnUsuarios.ImageIndex = 0;
+            this.btnUsuarios.ImageList = this.FotosBotones;
+            this.btnUsuarios.Location = new System.Drawing.Point(3, 183);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(203, 62);
+            this.btnUsuarios.Size = new System.Drawing.Size(239, 84);
             this.btnUsuarios.TabIndex = 1;
-            this.btnUsuarios.Text = "button1";
+            this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.UseVisualStyleBackColor = true;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
@@ -126,10 +147,11 @@
 
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.PictureBox picgames;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPPT;
+        private System.Windows.Forms.Button btnTaTeTi;
+        private System.Windows.Forms.Button btnInformes;
         private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.ImageList FotosBotones;
     }
 }
 

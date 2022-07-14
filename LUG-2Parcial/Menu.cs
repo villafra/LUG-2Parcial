@@ -33,5 +33,20 @@ namespace LUG_2Parcial
                 Aspecto.AbrirNuevoForm(this, frm);
             }
         }
+
+        private void btnTaTeTi_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmTATETI);
+            if (frm != null)
+            {
+                frm.BringToFront();
+                return;
+            }
+            else
+            {
+                frm = new frmTATETI();
+                Aspecto.AbrirNuevoForm(this, frm);
+            }
+        }
     }
 }

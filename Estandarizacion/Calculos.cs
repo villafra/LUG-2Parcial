@@ -63,10 +63,9 @@ namespace Estandarizacion
         }
         public static bool ValidarFecha(string fecha)
         {
-
+            bool validafecha = Regex.IsMatch(fecha, "^([0]?[1-9]|[1|2][0-9]|[3][0|1])[/]([0]?[1-9]|[1][0-2])[/]([0-9]{4}|[0-9]{2})$");
             fecha = Regex.Replace(fecha, @"[.-]", "/");
-            return Regex.IsMatch(fecha, "^([0]?[1-9]|[1][0-2])[/]([0]?[1-9]|[1|2][0-9]|[3][0|1])[/]([0-9]{4}|[0-9]{2})$");
-            
+            return validafecha;
         }
         public static bool ValidarNombrePersonal(string nombre)
         {

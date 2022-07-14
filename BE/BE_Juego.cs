@@ -11,5 +11,11 @@ namespace BE
     {
         public int Codigo { get ; set ; }
         public string Nombre { get; set; }
+        public BE_Jugador Ganador { get; set; }
+
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

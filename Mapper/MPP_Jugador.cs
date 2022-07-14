@@ -42,7 +42,33 @@ namespace Mapper
 
         public bool Existe(BE_Jugador Jugador)
         {
-            throw new NotImplementedException();
+            try
+            {
+                XDocument xmlDoc = XDocument.Load("Datos Usuarios.xml");
+                var query = from jugador in xmlDoc.Descendants("Usuario")
+                            where Convert.ToInt32(jugador.Element("DNI").Value) == Jugador.DNI
+                            select jugador;
+                if (query.Any())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (XmlException xml)
+            {
+
+                return false;
+                throw xml;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
 
         public bool ExisteActivo(BE_Jugador Jugador)

@@ -66,18 +66,26 @@ namespace LUG_2Parcial
             {
                 if (ValidarCampos().Item1)
                 {
-                    if (oBLL_Jugador.Guardar(nuevo()))
+                    if (!oBLL_Jugador.Existe(nuevo()))
                     {
-                        Calculos.MsgBoxAlta(NuevoPlayer.ToString());
+                        if (oBLL_Jugador.Guardar(NuevoPlayer))
+                        {
+                            Calculos.MsgBoxAlta(NuevoPlayer.ToString());
+                        }
+                        else
+                        {
+                            Calculos.MsgBoxNoAlta(NuevoPlayer.ToString());
+                        }
                     }
                     else
                     {
-                        Calculos.MsgBoxNoAlta(NuevoPlayer.ToString());
+                        Calculos.MsgBoxSiExisteDNI(NuevoPlayer.ToString());
                     }
+                   
                 }
                 else
                 {
-                    Calculos.MsgBox(ValidarCampos().Item2);
+                    Calculos.MsgBox("Por favor verifique el campo " + ValidarCampos().Item2);
                 }
             }
             catch (Exception ex)
