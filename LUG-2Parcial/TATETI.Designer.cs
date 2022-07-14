@@ -1,6 +1,6 @@
 ﻿namespace LUG_2Parcial
 {
-    partial class frmTATETI
+    partial class TATETI
     {
         /// <summary>
         /// Required designer variable.
@@ -39,19 +39,19 @@
             this.btn2 = new System.Windows.Forms.Button();
             this.btn1 = new System.Windows.Forms.Button();
             this.grpJugador1 = new System.Windows.Forms.GroupBox();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtPass = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.grpJugador2 = new System.Windows.Forms.GroupBox();
             this.lblPass2 = new System.Windows.Forms.Label();
             this.lblUsuario2 = new System.Windows.Forms.Label();
+            this.btnLogin2 = new System.Windows.Forms.Button();
             this.txtPass2 = new System.Windows.Forms.TextBox();
             this.txtUsuario2 = new System.Windows.Forms.TextBox();
             this.lblJugando = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
-            this.btnLogin2 = new System.Windows.Forms.Button();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.panelTATETI.SuspendLayout();
             this.grpJugador1.SuspendLayout();
             this.grpJugador2.SuspendLayout();
@@ -179,13 +179,36 @@
             this.grpJugador1.TabStop = false;
             this.grpJugador1.Text = "Jugador 1";
             // 
-            // txtUsuario
+            // lblPass
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(45, 72);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(203, 22);
-            this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblPass.AutoSize = true;
+            this.lblPass.Location = new System.Drawing.Point(45, 120);
+            this.lblPass.Name = "lblPass";
+            this.lblPass.Size = new System.Drawing.Size(67, 16);
+            this.lblPass.TabIndex = 11;
+            this.lblPass.Text = "Password";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(45, 50);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(40, 16);
+            this.lblUsuario.TabIndex = 10;
+            this.lblUsuario.Text = "eMail";
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackgroundImage = global::LUG_2Parcial.Properties.Resources.perfil_del_usuario;
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Location = new System.Drawing.Point(100, 185);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(90, 70);
+            this.btnLogin.TabIndex = 9;
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtPass
             // 
@@ -197,23 +220,13 @@
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPass.UseSystemPasswordChar = true;
             // 
-            // lblUsuario
+            // txtUsuario
             // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(45, 50);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(40, 16);
-            this.lblUsuario.TabIndex = 10;
-            this.lblUsuario.Text = "eMail";
-            // 
-            // lblPass
-            // 
-            this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(45, 120);
-            this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(67, 16);
-            this.lblPass.TabIndex = 11;
-            this.lblPass.Text = "Password";
+            this.txtUsuario.Location = new System.Drawing.Point(45, 72);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(203, 22);
+            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grpJugador2
             // 
@@ -247,6 +260,19 @@
             this.lblUsuario2.TabIndex = 10;
             this.lblUsuario2.Text = "eMail";
             // 
+            // btnLogin2
+            // 
+            this.btnLogin2.BackgroundImage = global::LUG_2Parcial.Properties.Resources.perfil_del_usuario;
+            this.btnLogin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLogin2.FlatAppearance.BorderSize = 0;
+            this.btnLogin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin2.Location = new System.Drawing.Point(100, 185);
+            this.btnLogin2.Name = "btnLogin2";
+            this.btnLogin2.Size = new System.Drawing.Size(90, 70);
+            this.btnLogin2.TabIndex = 9;
+            this.btnLogin2.UseVisualStyleBackColor = true;
+            this.btnLogin2.Click += new System.EventHandler(this.btnLogin2_Click);
+            // 
             // txtPass2
             // 
             this.txtPass2.Location = new System.Drawing.Point(45, 142);
@@ -271,9 +297,8 @@
             this.lblJugando.Font = new System.Drawing.Font("Nirmala UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJugando.Location = new System.Drawing.Point(167, 524);
             this.lblJugando.Name = "lblJugando";
-            this.lblJugando.Size = new System.Drawing.Size(317, 81);
+            this.lblJugando.Size = new System.Drawing.Size(0, 81);
             this.lblJugando.TabIndex = 53;
-            this.lblJugando.Text = "Jugador 1";
             // 
             // lblTurno
             // 
@@ -284,33 +309,7 @@
             this.lblTurno.TabIndex = 12;
             this.lblTurno.Text = "Es turno de: ";
             // 
-            // btnLogin2
-            // 
-            this.btnLogin2.BackgroundImage = global::LUG_2Parcial.Properties.Resources.perfil_del_usuario;
-            this.btnLogin2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLogin2.FlatAppearance.BorderSize = 0;
-            this.btnLogin2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin2.Location = new System.Drawing.Point(100, 185);
-            this.btnLogin2.Name = "btnLogin2";
-            this.btnLogin2.Size = new System.Drawing.Size(90, 70);
-            this.btnLogin2.TabIndex = 9;
-            this.btnLogin2.UseVisualStyleBackColor = true;
-            this.btnLogin2.Click += new System.EventHandler(this.btnLogin2_Click);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackgroundImage = global::LUG_2Parcial.Properties.Resources.perfil_del_usuario;
-            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(100, 185);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(90, 70);
-            this.btnLogin.TabIndex = 9;
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // frmTATETI
+            // TATETI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -321,7 +320,7 @@
             this.Controls.Add(this.grpJugador1);
             this.Controls.Add(this.panelTATETI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmTATETI";
+            this.Name = "TATETI";
             this.Text = "frmTATETI";
             this.panelTATETI.ResumeLayout(false);
             this.grpJugador1.ResumeLayout(false);

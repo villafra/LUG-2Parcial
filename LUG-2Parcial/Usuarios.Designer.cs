@@ -1,6 +1,6 @@
 ﻿namespace LUG_2Parcial
 {
-    partial class frmUsuarios
+    partial class Usuarios
     {
         /// <summary>
         /// Required designer variable.

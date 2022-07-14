@@ -13,12 +13,12 @@ using BLL;
 
 namespace LUG_2Parcial
 {
-    public partial class frmUsuarios : Form
+    public partial class Usuarios : Form
     {
         BE_Jugador Jugador;
         BLL_Jugador oBLL_Jugador;
         BE_Jugador NuevoPlayer;
-        public frmUsuarios()
+        public Usuarios()
         {
             InitializeComponent();
             Jugador = new BE_Jugador();

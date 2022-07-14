@@ -21,7 +21,7 @@ namespace LUG_2Parcial
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmUsuarios);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Usuarios);
             if (frm != null)
             {
                 frm.BringToFront();
@@ -29,14 +29,14 @@ namespace LUG_2Parcial
             }
             else
             {
-                frm = new frmUsuarios();
+                frm = new Usuarios();
                 Aspecto.AbrirNuevoForm(this, frm);
             }
         }
 
         private void btnTaTeTi_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmTATETI);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is TATETI);
             if (frm != null)
             {
                 frm.BringToFront();
@@ -44,14 +44,14 @@ namespace LUG_2Parcial
             }
             else
             {
-                frm = new frmTATETI();
+                frm = new TATETI();
                 Aspecto.AbrirNuevoForm(this, frm);
             }
         }
 
         private void btnPPT_Click(object sender, EventArgs e)
         {
-            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmPPT);
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is PPT);
             if (frm != null)
             {
                 frm.BringToFront();
@@ -59,7 +59,22 @@ namespace LUG_2Parcial
             }
             else
             {
-                frm = new frmPPT();
+                frm = new PPT();
+                Aspecto.AbrirNuevoForm(this, frm);
+            }
+        }
+
+        private void btnInformes_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frmGraficos);
+            if (frm != null)
+            {
+                frm.BringToFront();
+                return;
+            }
+            else
+            {
+                frm = new frmGraficos();
                 Aspecto.AbrirNuevoForm(this, frm);
             }
         }

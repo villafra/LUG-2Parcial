@@ -13,7 +13,7 @@ using Estandarizacion;
 
 namespace LUG_2Parcial
 {
-    public partial class frmTATETI : Form
+    public partial class TATETI : Form
     {
         BE_Ta_Te_Ti Ta_Te_Ti;
         BLL_Ta_Te_Ti oBLL_TaTeTi;
@@ -21,7 +21,7 @@ namespace LUG_2Parcial
         private bool quien = true;
         private BE_Jugador jugador1;
         private BE_Jugador jugador2;
-        public frmTATETI()
+        public TATETI()
         {
             InitializeComponent();
             Ta_Te_Ti = new BE_Ta_Te_Ti();

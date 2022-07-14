@@ -1,6 +1,6 @@
 ﻿namespace LUG_2Parcial
 {
-    partial class frmPPT
+    partial class PPT
     {
         /// <summary>
         /// Required designer variable.

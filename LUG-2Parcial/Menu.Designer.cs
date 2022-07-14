@@ -101,6 +101,7 @@
             this.btnInformes.TabIndex = 2;
             this.btnInformes.Text = "Informes";
             this.btnInformes.UseVisualStyleBackColor = true;
+            this.btnInformes.Click += new System.EventHandler(this.btnInformes_Click);
             // 
             // btnUsuarios
             // 

@@ -12,7 +12,7 @@ namespace BE
         public int Codigo { get ; set ; }
         public string Nombre { get; set; }
         public BE_Jugador Ganador { get; set; }
-
+        public int Cantidad { get; set; }
         public override string ToString()
         {
             return Nombre;
@@ -21,7 +21,8 @@ namespace BE
         public enum Resultado
         {
             Empate=1,
-            Victoria=2
+            Victoria=2,
+            Derrota=3
         }
     }
 }

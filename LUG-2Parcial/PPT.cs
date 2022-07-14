@@ -13,13 +13,13 @@ using Estandarizacion;
 
 namespace LUG_2Parcial
 {
-    public partial class frmPPT : Form
+    public partial class PPT : Form
     {
         BLL_Piedra_Papel_Tijera oBLL_PPT;
         BE_Piedra_Papel_Tijera oBE_PPT;
         BLL_Jugador BLLjugador;
         BE_Jugador Jugador;
-        public frmPPT()
+        public PPT()
         {
             InitializeComponent();
             oBE_PPT = new BE_Piedra_Papel_Tijera();
@@ -39,7 +39,7 @@ namespace LUG_2Parcial
                     oBE_PPT.Ganador = Jugador;
                     oBLL_PPT.GuardarPartida(oBE_PPT);
                     Jugador.Puntuacion += oBLL_PPT.PuntuarPartida(BE_Juego.Resultado.Victoria);
-                    BLLjugador.Guardar(Jugador);
+                    BLLjugador.Modificar(Jugador);
                     NuevaPartida();
                 }
                 else
@@ -56,7 +56,7 @@ namespace LUG_2Parcial
                 oBE_PPT.Ganador = Jugador;
                 oBLL_PPT.GuardarPartida(oBE_PPT);
                 Jugador.Puntuacion += oBLL_PPT.PuntuarPartida(BE_Juego.Resultado.Empate);
-                BLLjugador.Guardar(Jugador);
+                BLLjugador.Modificar(Jugador);
                 NuevaPartida();
             }
         }
